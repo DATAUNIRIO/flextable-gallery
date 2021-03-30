@@ -1,0 +1,14 @@
+<div class="fixedfooter">
+  {{ partial "rgdp.html" . }}
+  {{ with .Site.Params.footer }}
+  {{ . | markdownify }}
+  {{ end }}&nbsp;-&nbsp;
+  {{ partial "attribution.html" . }}
+</div>
+<div class="navhelper">
+  <span style='font-size:10pt;'>
+    <a href="javascript:window.scroll(0,0);">
+      <i class="fa fa-arrow-up"></i>
+    </a>
+  </span>
+</div>

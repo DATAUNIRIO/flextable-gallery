@@ -1,0 +1,18 @@
+<script src="{{ "js/jquery.min.js" | absURL }}"></script>
+<script src="{{ "js/bootstrap.min.js" | absURL }}"></script>
+<script src="{{ "js/jquery.cookie.js" | absURL }}"> </script>
+<script src="{{ "js/ekko-lightbox.js" | absURL }}"></script>
+<script src="{{ "js/jquery.scrollTo.min.js" | absURL }}"></script>
+<script src="{{ "js/masonry.pkgd.min.js" | absURL }}"></script>
+<script src="{{ "js/imagesloaded.pkgd.min.js" | absURL }}"></script>
+<script src="{{ "js/owl.carousel.min.js" | absURL }}"></script>
+<script src="{{ "js/front.js" | absURL }}"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/highlight.min.js"></script>
+<script>
+hljs.configure({languages: ["r", "json", "yaml"]});
+hljs.highlightAll();
+</script>
+{{ if .Site.Params.analytics.matomo }}
+  {{ partial "_analytics/matomo.html" . }}
+{{ end }}

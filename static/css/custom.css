@@ -1,0 +1,86 @@
+/* your styles go here */
+
+.tags > a{
+  margin-top: 2pt;
+  margin-bottom: 2pt;
+}
+.tag-btn {
+  padding: 3px;
+  border-radius: 4px;
+}
+
+.box-masonry-description > p {
+  margin-top: 4pt;
+  margin-bottom: 4pt;
+}
+
+.content-column-content p, .content-column-content li{
+  color: #444444;
+}
+
+.fixedfooter {
+    padding-top: .5rem;
+    text-align: center;
+    background-color: #eee;
+    width: 100%;
+    font-size: 0.8em;
+}
+@media (min-width: 1025px){
+  .fixedfooter {
+      position: fixed;
+      bottom: 0;
+  }
+  .page-title {
+    display: none;
+  }
+
+}
+
+.sidebar-p{
+  font-size: 1em;
+  color: black;
+}
+
+
+.navhelper {
+  position: fixed;
+  bottom: 0;
+  padding: 5px;
+  border-radius:5px 5px 0 0;
+  right: 30px;
+  z-index:2000;
+  background-color: #006699;
+}
+.navhelper a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+h1{
+ color: #475f77;
+ text-transform: capitalize;
+ font-size: 3em;
+}
+h2{
+ font-size: 2em;
+}
+h3{
+ font-size: 1.5em;
+}
+h4{
+ font-size: 1.2em;
+}
+
+h2, h3 {
+  color: #1bbbda;
+}
+.content-column {
+    padding-top: 40px;
+    background: white;
+}
+.grid {
+    margin-right: -15px;
+    margin-left: -15px;
+    background-color: white;
+}

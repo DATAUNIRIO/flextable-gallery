@@ -1,0 +1,53 @@
+---
+title: "GLM model"
+author: "David Gohel"
+date: '2021-02-21'
+categories: ["R"]
+tags: ["model", "as_flextable"]
+image: img/flextable-imgs/flextable-003.png
+showonlyimage: false
+---
+
+
+How to get a flextable from a GLM model.
+
+This example demonstrate a simple 
+call to `as_flextable` and then format the result.
+
+<!--more-->
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+
+```{r message=FALSE}
+library(flextable)
+```
+
+## Data
+
+```{r}
+dat <- attitude
+dat$high.rating <- (dat$rating > 70)
+```
+
+## Model
+
+```{r}
+probit.model <- glm(high.rating ~ learning + critical +
+   advance, data=dat, family = binomial(link = "probit"))
+```
+
+## flextable
+
+```{r}
+ft <- as_flextable(probit.model)
+ft
+```
+
+
+```{r include=FALSE, eval=!file.exists(here::here("static/img/flextable-imgs/flextable-003.png"))}
+save_as_image(ft, path = here::here("static/img/flextable-imgs/flextable-003.png"), webshot = "webshot2")
+```
+

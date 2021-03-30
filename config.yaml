@@ -1,0 +1,26 @@
+baseurl: https://ardata-fr.github.io/flextable-gallery/
+title: flextable gallery
+theme: hugo-creative-portfolio-theme
+paginate: '6'
+summaryLength: '30'
+languageCode: en-us
+googleAnalytics: 'G-FMBX5KLFSE'
+params:
+  copyright: '&copy;2021 <a href="https://www.ardata.fr">ArData</a>'
+  description: A gallery of examples codes with flextable
+  footer: "Copyright &copy; [ArData](https://www.ardata.fr) 2021"
+  navlinks:
+    - home: yes
+      name: Gallery
+      url: gallery/
+    - name: Contribute
+      url: contribute/
+  sidebarAbout:
+    - Start using the Gallery to discover <code>{flextable}</code> solutions and learn from others. This site lists examples developed by R users in the community.
+    - The aim is to make it easy for R users to use <code>{flextable}</code> by providing examples that can be re-used.
+
+  social:
+    github: https://github.com/ardata-fr/flextable-gallery
+    twitter: https://twitter.com/search?q=%23flextable&f=live
+    usermanual: https://ardata-fr.github.io/flextable-book
+  style: default

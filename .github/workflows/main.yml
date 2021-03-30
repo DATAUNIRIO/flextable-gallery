@@ -1,0 +1,52 @@
+on:
+  push:
+    branches: main
+
+name: "Build Site"
+
+jobs:
+  blogdown:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: r-lib/actions/setup-r@master
+
+      - uses: r-lib/actions/setup-pandoc@master
+
+      - name: Install system dependencies
+        env:
+          RHUB_PLATFORM: linux-x86_64-ubuntu-gcc
+        run: |
+          sysreqs="export DEBIAN_FRONTEND=noninteractive; apt-get -y update && apt-get install -y libpoppler-cpp-dev libssl-dev zlib1g-dev pandoc-citeproc libmagic-dev libxml2-dev libmagick++-dev libcairo2-dev imagemagick libxft-dev libcurl4-openssl-dev librsvg2-dev libharfbuzz-dev libfribidi-dev libtiff-dev libpng-dev"
+          sudo -s eval "$sysreqs"
+          sudo apt install libreoffice
+          sudo apt-get --only-upgrade install google-chrome-stable
+          echo "options(repos = c(CRAN = 'https://packagemanager.rstudio.com/cran/__linux__/focal/latest'))" > ~/.Rprofile
+
+      - name: Query dependencies
+        run: |
+          install.packages(c('remotes', 'blogdown', 'flextable', 'broom', 'readxl', 'fs', 'here', 'data.table', 'dplyr', 'magick', 'ggplot2', 'locatexec', 'callr'))
+          remotes::install_github('rstudio/chromote')
+          remotes::install_github('rstudio/webshot2')
+          remotes::install_github('ardata-fr/minimage')
+          blogdown::install_hugo("0.61.0")
+        shell: Rscript {0}
+
+      - name: render book
+        run: |
+          minimage::compress_images_install()
+          blogdown::build_site(run_hugo = TRUE, build_rmd = TRUE)
+          minimage::compress_images(input = "public", output = "public")
+        shell: Rscript {0}
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages # The branch the action should deploy to.
+          FOLDER: public
+          TARGET_FOLDER: . # The folder the action should deploy.
+          CLEAN: true

@@ -1,0 +1,28 @@
+<div id="sidebar" class="col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
+  <div class="sidebar-content">
+    <h1 class="sidebar-heading"><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></h1>
+    {{ range .Site.Params.sidebarAbout }}
+      <p class="sidebar-p">{{ . | safeHTML }}</p>
+    {{ end }}
+    <ul class="sidebar-menu">
+      {{ range .Site.Params.navlinks }}
+        <li><a href="{{ absURL .url }}">{{ .name }}</a></li>
+      {{ end }}
+    </ul>
+
+    {{ if not (eq (len .Site.Taxonomies.tags) 0) }}
+
+    <p class="tags">
+        {{ range $name, $items := .Site.Taxonomies.tags }}
+        <a class="btn tag-btn btn-primary btn-xs"
+           href="{{ $.Site.BaseURL }}tags/{{ $name | urlize | lower }}"
+           role="button" data-animate-hover="pulse">{{ $name }}</a>
+        {{ end }}
+    </p>
+
+    {{ end }}
+
+    {{ partial "social_buttons_in_sidebar.html" . }}
+
+  </div>
+</div>

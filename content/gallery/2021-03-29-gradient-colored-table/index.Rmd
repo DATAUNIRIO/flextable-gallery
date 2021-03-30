@@ -1,0 +1,82 @@
+---
+title: gradient-colored-table
+author: David Gohel
+date: '2021-03-29'
+slug: []
+categories: ["R"]
+tags: ["color", "headers"]
+image: img/flextable-imgs/flextable-010.png
+showonlyimage: false
+---
+
+Apply a color gradient on a contingency table.
+
+<!--more-->
+
+
+## The packages
+
+```{r message=FALSE}
+library(flextable)
+library(magrittr)
+library(data.table)
+library(scales)
+```
+
+
+## The data
+
+```{r}
+cancer_data <- fread("Cancer.dat")
+cancers <- dcast(cancer_data, formula = time ~ histology + stage,
+                         fill = 0, value.var = "count", fun.aggregate = sum)
+cancers
+
+cancers_header <- data.frame(
+  col_keys = c("time", "1_1", "2_1", "3_1", 
+               "1_2", "2_2", "3_2", 
+               "1_3", "2_3","3_3"),
+  line2 = c("Follow-up", rep("I", 3), rep("II", 3), rep("III", 3)),
+  line3 = c("Follow-up", rep(c("1", "2", "3"), 3))
+)
+cancers_header
+```
+
+## Scale for background color
+
+```{r}
+colourer <- col_numeric(
+  palette = c("transparent", "red"),
+  domain = c(0, 50))
+```
+
+
+## The default flextable
+
+
+```{r}
+ft <- flextable( cancers, col_keys = cancers_header$col_keys)
+ft
+```
+
+## The final flextable
+
+```{r}
+ft <- set_header_df( ft, mapping = cancers_header, key = "col_keys" ) %>% 
+  merge_v(part = "header", j = 1) %>% 
+  merge_h(part = "header", i = 1) %>% 
+  theme_booktabs(bold_header = TRUE) %>% 
+  align(align = "center", part = "all") %>%
+  bg(
+    bg = colourer,
+    j = ~ . -time,
+    part = "body") %>%
+  vline(j = c(1, 4, 7), border = fp_border_default())
+ft
+```
+
+
+```{r include=FALSE, eval=!file.exists(here::here("static/img/flextable-imgs/flextable-010.png"))}
+save_as_image(ft, path = here::here("static/img/flextable-imgs/flextable-010.png"), webshot = "webshot2")
+```
+
