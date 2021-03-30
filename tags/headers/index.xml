@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>headers on flextable gallery</title>
+    <link>https://ardata-fr.github.io/flextable-gallery/tags/headers/</link>
+    <description>Recent content in headers on flextable gallery</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 29 Mar 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ardata-fr.github.io/flextable-gallery/tags/headers/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>gradient-colored-table</title>
+      <link>https://ardata-fr.github.io/flextable-gallery/gallery/2021-03-29-gradient-colored-table/</link>
+      <pubDate>Mon, 29 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ardata-fr.github.io/flextable-gallery/gallery/2021-03-29-gradient-colored-table/</guid>
+      <description>
+&lt;link href=&#34;{{&lt; blogdown/postref &gt;}}index_files/tabwid/tabwid.css&#34; rel=&#34;stylesheet&#34; /&gt;
+
+
+&lt;p&gt;Apply a color gradient on a contingency table.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

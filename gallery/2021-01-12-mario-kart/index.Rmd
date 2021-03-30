@@ -1,0 +1,116 @@
+---
+title: "Mario kart"
+author: "Clémentine Jager"
+date: '2021-02-21'
+categories: ["R"]
+tags: ["image"]
+image: img/flextable-imgs/flextable-008.png
+showonlyimage: false
+---
+
+Mix text and image to build a table presenting statistics of Mario Kart characters. 
+
+<!--more-->
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+In Mario Kart 8 Deluxe on Switch, each character has its own set of statistics, but unlike karts and customization elements, they are not displayed directly on the screen.
+
+Characters all have their own very precise statistics: speed (different 
+according to the environment), maneuverability, power of mini-turbos, absolute speed, ...
+
+These parameters are rated out of 6 and have been listed by the community 
+of fans of the game.
+
+We will use flextable to present the detail of these statistics by characters.
+
+
+## Packages 
+
+```{r}
+library(magrittr)
+library(flextable)
+library(officer)
+```
+
+
+## Data
+
+Data are available here: https://docs.google.com/spreadsheets/d/1g7A-38tn9UAIbB2B3sZI-MpILsS3ZS870UTVMRRxh4Q/edit#gid=0
+
+```{r}
+mario_kart <- readxl::read_excel("mario-kart.xlsx", skip = 1)
+mario_kart$image <- file.path("mario", paste0(mario_kart$image, ".png"))
+mario_kart$star <- file.path("mario", mario_kart$star)
+mario_kart
+```
+
+## Images
+
+```{r}
+fs::dir_tree("mario")
+```
+
+## Flextable code
+
+```{r}
+set_flextable_defaults(font.family = "Arial", font.size = 9, padding = 2, digits = 1)
+
+var_stat <- setdiff(names(mario_kart), c("image", "star", "color", "Characters"))
+
+ft <- flextable(mario_kart, col_keys = c("Characters", var_stat)) %>% 
+  set_header_labels(Land_speed = "Land", `Anti-G_speed` = "Anti-G", 
+                    Water_speed = "Water", Gliding_speed = "Gliding") %>% 
+  add_header_row(values = c("Characters", "Speed", "Accel", "Weight", 
+                            "Handling", "Traction", "M-turbo"), 
+                 colwidths = c(1, 4, 1, 1, 
+                               4, 1, 1)) %>% theme_box() %>% 
+  merge_v(part = "header") %>% bold(part = "header") %>% 
+  valign(valign = "center", part = "header") %>% 
+  compose(j = "Characters", 
+          value = as_paragraph(
+            as_b(
+              colorize(Characters, color = mario_kart$color)), 
+            as_chunk(" "), 
+            as_image(image, width = 0.2, height = 0.2)) 
+  ) %>% 
+  colformat_double(digits = 1) %>% 
+  theme_zebra(odd_header = "#c7254e", even_header = "#c7254e",
+              odd_body = "#fff5f5", even_body = "#f8f9fa") %>% 
+  color(part = "header", color = "white") %>% 
+  align(align = "right", part = "all")
+ft
+```
+
+### Flag hightest scores 
+
+Let's add the coin where a character has the hightest score.
+
+```{r}
+for(column in var_stat){
+  i_selector <- as.formula(paste0("~`", column, "`>= max(`", column, "`, na.rm = TRUE)"))
+  ft <- compose(ft, 
+            i = i_selector, j = column, 
+            value = as_paragraph(
+              as_image(star, width = .15, height = .15), 
+              as_chunk(" "), 
+              as_chunk(.)), use_dot = TRUE
+    )
+}
+ft <- ft %>% autofit() 
+```
+
+And the final result is:
+
+```{r}
+ft
+```
+
+<br>
+
+```{r include=FALSE, eval=!file.exists(here::here("static/img/flextable-imgs/flextable-008.png"))}
+save_as_image(ft, path = here::here("static/img/flextable-imgs/flextable-008.png"), webshot = "webshot2")
+```
+

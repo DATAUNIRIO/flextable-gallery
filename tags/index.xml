@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on flextable gallery</title>
+    <link>https://ardata-fr.github.io/flextable-gallery/tags/</link>
+    <description>Recent content in Tags on flextable gallery</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 29 Mar 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ardata-fr.github.io/flextable-gallery/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>color</title>
+      <link>https://ardata-fr.github.io/flextable-gallery/tags/color/</link>
+      <pubDate>Mon, 29 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ardata-fr.github.io/flextable-gallery/tags/color/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>headers</title>
+      <link>https://ardata-fr.github.io/flextable-gallery/tags/headers/</link>
+      <pubDate>Mon, 29 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ardata-fr.github.io/flextable-gallery/tags/headers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>as_flextable</title>
+      <link>https://ardata-fr.github.io/flextable-gallery/tags/as_flextable/</link>
+      <pubDate>Fri, 26 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ardata-fr.github.io/flextable-gallery/tags/as_flextable/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>compose</title>
+      <link>https://ardata-fr.github.io/flextable-gallery/tags/compose/</link>
+      <pubDate>Fri, 26 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ardata-fr.github.io/flextable-gallery/tags/compose/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>image</title>
+      <link>https://ardata-fr.github.io/flextable-gallery/tags/image/</link>
+      <pubDate>Fri, 26 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ardata-fr.github.io/flextable-gallery/tags/image/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>model</title>
+      <link>https://ardata-fr.github.io/flextable-gallery/tags/model/</link>
+      <pubDate>Fri, 26 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ardata-fr.github.io/flextable-gallery/tags/model/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>caption</title>
+      <link>https://ardata-fr.github.io/flextable-gallery/tags/caption/</link>
+      <pubDate>Wed, 10 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ardata-fr.github.io/flextable-gallery/tags/caption/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>height</title>
+      <link>https://ardata-fr.github.io/flextable-gallery/tags/height/</link>
+      <pubDate>Sun, 21 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ardata-fr.github.io/flextable-gallery/tags/height/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>width</title>
+      <link>https://ardata-fr.github.io/flextable-gallery/tags/width/</link>
+      <pubDate>Sun, 21 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ardata-fr.github.io/flextable-gallery/tags/width/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>plot</title>
+      <link>https://ardata-fr.github.io/flextable-gallery/tags/plot/</link>
+      <pubDate>Tue, 16 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ardata-fr.github.io/flextable-gallery/tags/plot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>border</title>
+      <link>https://ardata-fr.github.io/flextable-gallery/tags/border/</link>
+      <pubDate>Sun, 06 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ardata-fr.github.io/flextable-gallery/tags/border/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>theme</title>
+      <link>https://ardata-fr.github.io/flextable-gallery/tags/theme/</link>
+      <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
+      
+      <guid>https://ardata-fr.github.io/flextable-gallery/tags/theme/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

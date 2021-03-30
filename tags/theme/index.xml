@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>theme on flextable gallery</title>
+    <link>https://ardata-fr.github.io/flextable-gallery/tags/theme/</link>
+    <description>Recent content in theme on flextable gallery</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 01 Dec 2020 21:13:14 -0500</lastBuildDate>
+    
+	<atom:link href="https://ardata-fr.github.io/flextable-gallery/tags/theme/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Creating a theme function</title>
+      <link>https://ardata-fr.github.io/flextable-gallery/gallery/2020-12-01-creating-theme-function/</link>
+      <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
+      
+      <guid>https://ardata-fr.github.io/flextable-gallery/gallery/2020-12-01-creating-theme-function/</guid>
+      <description>
+&lt;link href=&#34;{{&lt; blogdown/postref &gt;}}index_files/tabwid/tabwid.css&#34; rel=&#34;stylesheet&#34; /&gt;
+
+
+&lt;p&gt;In this example, a theme function is created and used to format different &lt;code&gt;data.frame&lt;/code&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

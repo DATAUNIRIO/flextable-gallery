@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>width on flextable gallery</title>
+    <link>https://ardata-fr.github.io/flextable-gallery/tags/width/</link>
+    <description>Recent content in width on flextable gallery</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 21 Feb 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ardata-fr.github.io/flextable-gallery/tags/width/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Correlation matrix</title>
+      <link>https://ardata-fr.github.io/flextable-gallery/gallery/2021-01-21-correlation/</link>
+      <pubDate>Sun, 21 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ardata-fr.github.io/flextable-gallery/gallery/2021-01-21-correlation/</guid>
+      <description>
+&lt;link href=&#34;{{&lt; blogdown/postref &gt;}}index_files/tabwid/tabwid.css&#34; rel=&#34;stylesheet&#34; /&gt;
+
+
+&lt;p&gt;How to add create a flextable that looks like an heatmap.&lt;/p&gt;
+&lt;p&gt;These examples is using a correlation matrix to illustrate the case.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

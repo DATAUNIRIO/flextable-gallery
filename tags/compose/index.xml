@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>compose on flextable gallery</title>
+    <link>https://ardata-fr.github.io/flextable-gallery/tags/compose/</link>
+    <description>Recent content in compose on flextable gallery</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 26 Mar 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ardata-fr.github.io/flextable-gallery/tags/compose/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>tennis players</title>
+      <link>https://ardata-fr.github.io/flextable-gallery/gallery/2021-03-26-tennis-players/</link>
+      <pubDate>Fri, 26 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ardata-fr.github.io/flextable-gallery/gallery/2021-03-26-tennis-players/</guid>
+      <description>
+&lt;link href=&#34;{{&lt; blogdown/postref &gt;}}index_files/tabwid/tabwid.css&#34; rel=&#34;stylesheet&#34; /&gt;
+
+
+&lt;p&gt;Mix text and image, use the functions &lt;code&gt;compose&lt;/code&gt; and &lt;code&gt;as_image&lt;/code&gt;. The table
+shows a tennis players ranking.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Table with density lines</title>
+      <link>https://ardata-fr.github.io/flextable-gallery/gallery/2021-02-16-miniplots/</link>
+      <pubDate>Tue, 16 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ardata-fr.github.io/flextable-gallery/gallery/2021-02-16-miniplots/</guid>
+      <description>
+&lt;link href=&#34;{{&lt; blogdown/postref &gt;}}index_files/tabwid/tabwid.css&#34; rel=&#34;stylesheet&#34; /&gt;
+
+
+&lt;p&gt;In this example, we create a flextable that represents an aggregation as a density curve.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

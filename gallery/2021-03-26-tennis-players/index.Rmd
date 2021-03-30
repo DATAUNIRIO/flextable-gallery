@@ -1,0 +1,117 @@
+---
+title: tennis players
+author: David Gohel
+date: '2021-03-26'
+slug: []
+categories:
+  - R
+tags:
+  - compose
+  - image
+image: img/flextable-imgs/flextable-006.png
+showonlyimage: false
+---
+
+Mix text and image, use the functions `compose` and `as_image`. The table 
+shows a tennis players ranking. 
+
+<!--more-->
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+## Packages 
+
+```{r message=FALSE}
+library(flextable)
+library(magrittr)
+library(data.table)
+library(magrittr)
+library(dplyr)
+```
+
+## Data
+
+This dataset was created by hand. It represents a ranking of tennis players. It
+includes in addition to some statistics the names of the images representing the
+flag of the player’s country of origin as well as a picture of the player.
+
+```{r}
+tennis_players <-
+  data.frame(
+    Rank = 1:10,
+    Player = c(
+      "Roger Federer", "Lleyton Hewitt", "Feliciano Lopez", "Ivo Karlovic", "Andy Murray",
+      "Pete Sampras", "Greg Rusedski", "Tim Henman", "Novak Djokovic", "Andy Roddick"
+    ),
+    Percentage = c(92.63, 85.29, 89.86, 94.87, 88.89, 92.66, 90.33, 83.77, 89.12, 92.76),
+    `Games Won` = c(2739L, 1740L, 1684L, 1645L, 1528L, 1478L, 1476L, 1461L, 1442L, 1410L),
+    `Total Games` = c(2957L, 2040L, 1874L, 1734L, 1719L, 1595L, 1634L, 1744L, 1618L, 1520L),
+    Matches = c(205L, 149L, 122L, 113L, 121L, 105L, 116L, 110L, 106L, 103L),
+    head = c(
+      "federer_head.png", "hewitt_head.png", "lopez_head.png", "karlovic_head.png",
+      "murray_head.png", "sampras_head.png", "rusedski_head.png", "henman_head.png",
+      "djokovic_head.png", "roddick_head.png"
+    ),
+    flag = c(
+      "sui.png", "aus.png", "esp.png", "cro.png", "gbr.png", "usa.png",
+      "gbr.png", "gbr.png", "srb.png", "usa.png"
+    ),
+    stringsAsFactors = FALSE
+  ) %>%
+  mutate(
+    head = file.path("players", head),
+    flag = file.path("flags", flag)
+  )
+tennis_players
+```
+
+## Images
+
+```{r}
+fs::dir_tree("players")
+fs::dir_tree("flags")
+```
+
+## Flextable code
+
+Init the flextable 
+
+```{r}
+ft <- flextable(tennis_players,
+  col_keys = c(
+    "Rank", "Player", "Percentage",
+    "Games.Won", "Total.Games", "Matches"
+  )
+) 
+```
+
+Mix text and images
+
+```{r}
+ft <- compose(ft, 
+    j = "Player",
+    value = as_paragraph(
+      as_image(src = head, width = .5, height = 0.5),
+      " ",
+      as_image(src = flag, width = .5, height = 0.33),
+      " ", as_chunk(x = Player, fp_text_default(color = "#337ab7"))
+    )
+  )
+```
+
+Apply a theme
+
+```{r}
+ft <- theme_zebra(ft) %>% 
+      autofit()
+ft
+```
+
+
+
+```{r include=FALSE, eval=!file.exists(here::here("static/img/flextable-imgs/flextable-006.png"))}
+save_as_image(ft, path = here::here("static/img/flextable-imgs/flextable-006.png"), webshot = "webshot2")
+```
+

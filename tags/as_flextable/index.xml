@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>as_flextable on flextable gallery</title>
+    <link>https://ardata-fr.github.io/flextable-gallery/tags/as_flextable/</link>
+    <description>Recent content in as_flextable on flextable gallery</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 26 Mar 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ardata-fr.github.io/flextable-gallery/tags/as_flextable/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>GAM model</title>
+      <link>https://ardata-fr.github.io/flextable-gallery/gallery/2021-03-26-gam-model/</link>
+      <pubDate>Fri, 26 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ardata-fr.github.io/flextable-gallery/gallery/2021-03-26-gam-model/</guid>
+      <description>
+&lt;link href=&#34;{{&lt; blogdown/postref &gt;}}index_files/tabwid/tabwid.css&#34; rel=&#34;stylesheet&#34; /&gt;
+
+
+&lt;p&gt;How to get a flextable from a GAM model by calling &lt;code&gt;as_flextable&lt;/code&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>captions examples</title>
+      <link>https://ardata-fr.github.io/flextable-gallery/gallery/2021-03-10-captions-examples/</link>
+      <pubDate>Wed, 10 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ardata-fr.github.io/flextable-gallery/gallery/2021-03-10-captions-examples/</guid>
+      <description>
+&lt;link href=&#34;{{&lt; blogdown/postref &gt;}}index_files/tabwid/tabwid.css&#34; rel=&#34;stylesheet&#34; /&gt;
+
+
+&lt;p&gt;How to add captions to a flextable in R Markdown documents.&lt;/p&gt;
+&lt;p&gt;These examples demonstrate various methods.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>GLM model</title>
+      <link>https://ardata-fr.github.io/flextable-gallery/gallery/2021-02-21-glm-model/</link>
+      <pubDate>Sun, 21 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ardata-fr.github.io/flextable-gallery/gallery/2021-02-21-glm-model/</guid>
+      <description>
+&lt;link href=&#34;{{&lt; blogdown/postref &gt;}}index_files/tabwid/tabwid.css&#34; rel=&#34;stylesheet&#34; /&gt;
+
+
+&lt;p&gt;How to get a flextable from a GLM model.&lt;/p&gt;
+&lt;p&gt;This example demonstrate a simple
+call to &lt;code&gt;as_flextable&lt;/code&gt; and then format the result.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,49 @@
+---
+title: "GAM model"
+author: "David Gohel"
+date: '2021-03-26'
+categories: ["R"]
+tags: ["model", "as_flextable"]
+image: img/flextable-imgs/flextable-002.png
+showonlyimage: false
+---
+
+How to get a flextable from a GAM model by calling `as_flextable`.
+
+<!--more-->
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+library(flextable)
+require("mgcv")
+```
+
+This example is using material from https://noamross.github.io/gams-in-r-course/chapter1
+
+## The data
+
+```{r}
+source("mpg.R")
+head(mpg)
+```
+
+## The GAM model
+
+```{r}
+mod_city3 <- gam(
+  city.mpg ~ s(weight, by = drive) + s(length, by = drive) + s(price, by = drive) + drive,
+  data = mpg, method = "REML")
+```
+
+## The flextable
+
+```{r}
+ft <- as_flextable(mod_city3)
+ft
+```
+
+
+```{r include=FALSE, eval=!file.exists(here::here("static/img/flextable-imgs/flextable-002.png"))}
+save_as_image(ft, path = here::here("static/img/flextable-imgs/flextable-002.png"), webshot = "webshot2")
+```
+

@@ -1,0 +1,72 @@
+---
+title: "Creating a theme function"
+author: "David Gohel"
+date: 2020-12-01T21:13:14-05:00
+categories: ["R"]
+tags: ["theme"]
+image: img/flextable-imgs/flextable-001.png
+showonlyimage: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+
+In this example, a theme function is created and used to format different `data.frame`. 
+
+<!--more-->
+
+```{r}
+library(flextable)
+library(magrittr)
+```
+
+In this example, a theme function is created and used to format different `data.frame`. 
+
+
+A theme function is a R function where input is a flextable and output is a flextable. You 
+are free to do any formatting inside this function.
+
+
+```{r}
+theme_design <- function(x) {
+  x <- border_remove(x)
+  std_border <- fp_border_default(width = 4, color = "white")
+  x <- fontsize(x, size = 10, part = "all")
+  x <- font(x, fontname = "Courier", part = "all")
+  x <- align(x, align = "center", part = "all")
+  x <- bold(x, bold = TRUE, part = "all")
+  x <- bg(x, bg = "#475f77", part = "body")
+  x <- bg(x, bg = "#eb5555", part = "header")
+  x <- bg(x, bg = "#1bbbda", part = "footer")
+  x <- color(x, color = "white", part = "all")
+  x <- padding(x, padding = 6, part = "all")
+  x <- border_outer(x, part="all", border = std_border )
+  x <- border_inner_h(x, border = std_border, part="all")
+  x <- border_inner_v(x, border = std_border, part="all")
+  x <- set_table_properties(x, layout = "fixed")
+  x
+}
+```
+
+```{r}
+flextable(head(cars)) %>% 
+  theme_design()
+```
+
+```{r}
+ft <- flextable(head(airquality)) %>% 
+  add_footer_lines(
+    c("Daily air quality measurements in New York, May to September 1973.", 
+      "Hummm, non non rien.")) %>% 
+  autofit() %>% 
+  add_header_lines("New York Air Quality Measurements") %>% 
+  theme_design()
+ft
+```
+
+```{r include=FALSE, eval=!file.exists(here::here("static/img/flextable-imgs/flextable-001.png"))}
+save_as_image(ft, path = here::here("static/img/flextable-imgs/flextable-001.png"), webshot = "webshot2")
+```
+

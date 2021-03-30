@@ -1,0 +1,84 @@
+---
+title: captions examples
+author: David Gohel
+date: '2021-03-10'
+slug: []
+categories: ["R"]
+tags: ["caption", "as_flextable"]
+---
+
+
+How to add captions to a flextable in R Markdown documents.
+
+These examples demonstrate various methods.
+
+<!--more-->
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+## Packages
+
+```{r message=FALSE}
+library(flextable)
+library(officer)
+library(magrittr)
+library(data.table)
+library(magrittr)
+```
+
+## Data
+
+```{r}
+data_CO2 <- dcast(as.data.table(CO2), 
+  Treatment + conc ~ Type, value.var = "uptake", fun.aggregate = mean)
+data_CO2
+data_CO2 <- as_grouped_data(x = data_CO2, groups = c("Treatment"))
+```
+
+## flextable used for illustration
+
+```{r}
+ft <- as_flextable( data_CO2 ) %>% 
+  bold(j = 1, i = ~ !is.na(Treatment), bold = TRUE, part = "body" ) %>% 
+  bold(part = "header", bold = TRUE ) %>% 
+  width(width = 1.5) %>% 
+  colformat_double(i = ~ !is.na(conc), digits = 2) %>% 
+  colformat_double(i = ~ !is.na(conc), j = 1, digits = 0) %>% 
+  add_footer_lines("dataset CO2 has been used for this flextable") %>% 
+  bg(bg = "#FFFFFF", part = "footer") %>% 
+  set_header_labels(conc = "Concentration") %>% 
+  width(width = c(1.5, 1, 1)) 
+```
+
+
+## Captions
+
+Now, let's add a caption with `set_caption`:
+
+```{r}
+set_caption(ft, 
+  caption = "mean of carbon dioxide uptake in grass plants")
+```
+
+
+Or use kintr chunk options:
+
+```{r results='asis', echo=FALSE}
+cat("<pre>")
+cat(paste0("", 
+           "```{r tab.cap='mean ...'}```", 
+           ""), sep = "\n")
+cat("</pre>")
+```
+
+```{r tab.cap='mean of carbon dioxide uptake in grass plants'}
+ft
+```
+
+
+```{r include=FALSE, eval=!file.exists(here::here("static/img/flextable-imgs/flextable-005.png"))}
+save_as_image(ft, path = here::here("static/img/flextable-imgs/flextable-005.png"), webshot = "webshot2")
+```
+

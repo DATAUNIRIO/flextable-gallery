@@ -1,0 +1,65 @@
+---
+title: Table with density lines
+author: David Gohel
+date: '2021-02-16'
+slug: []
+categories:
+  - R
+tags:
+  - compose
+  - plot
+image: img/flextable-imgs/flextable-009.png
+showonlyimage: false
+---
+
+In this example, we create a flextable that represents an aggregation as a density curve.
+
+<!--more-->
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+## Packages 
+
+```{r message=FALSE}
+library(flextable)
+library(magrittr)
+library(data.table)
+```
+
+## Data
+
+
+```{r}
+z <- as.data.table(ggplot2::diamonds)
+z <- z[, list(
+  price = mean(price, na.rm = TRUE),
+  list_col = list(.SD$x)
+), by = "cut"]
+z
+```
+
+
+## Flextable code
+
+
+```{r}
+ft <- flextable(data = z) %>%
+  compose(j = "list_col", value = as_paragraph(
+    plot_chunk(value = list_col, type = "dens", col = "pink", 
+               width = 1.5, height = .4, free_scale = TRUE)
+  )) %>%
+  colformat_double(big.mark = " ", suffix = " $") %>% 
+  set_header_labels(list_col = "density") %>% 
+  autofit()
+ft
+```
+
+
+
+
+```{r include=FALSE, eval=!file.exists(here::here("static/img/flextable-imgs/flextable-009.png"))}
+save_as_image(ft, path = here::here("static/img/flextable-imgs/flextable-009.png"), webshot = "webshot2")
+```
+

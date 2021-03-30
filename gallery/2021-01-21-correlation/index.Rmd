@@ -1,0 +1,69 @@
+---
+title: "Correlation matrix"
+author: "David Gohel"
+date: '2021-02-21'
+categories: ["R"]
+tags: ["color", "height", "width"]
+image: img/flextable-imgs/flextable-004.png
+showonlyimage: false
+---
+
+
+How to add create a flextable that looks like an heatmap.
+
+These examples is using a correlation matrix to illustrate the case.
+
+<!--more-->
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+library(flextable)
+library(magrittr)
+```
+
+```{r}
+# correlations ----
+correlations <- cor(mtcars)
+correlations <- data.frame(
+  rowname = row.names(correlations), 
+  stringsAsFactors = FALSE) %>%
+  cbind(correlations)
+correlations
+```
+
+
+
+```{r}
+cor_color <- function(x){
+  col_palette <- c("#D73027", "#F46D43", "#FDAE61", "#FEE08B", 
+                   "#D9EF8B", "#A6D96A", "#66BD63", "#1A9850")
+  mycut <- cut(x, 
+    breaks = c(-1, -0.75, -0.5, -0.25, 0, 0.25, 0.5, 0.75, 1), 
+    include.lowest = TRUE, label = FALSE)
+  col_palette[mycut]
+}
+
+std_border <- fp_border_default(color = "white")
+```
+
+flextable 
+
+```{r}
+ft <- flextable(correlations) %>%
+  border_outer(part = "all", border = std_border) %>%
+  border_inner(border = std_border, part = "all") %>%
+  compose(i = 1, j = 1, value = as_paragraph(""), part = "header") %>%
+  compose(j = ~ . - rowname, value = as_paragraph(""), part = "body") %>%
+  bg(j = ~ . - rowname, bg = cor_color) %>%
+  height(height = .5) %>%
+  hrule(rule = "exact", part = "body") %>%
+  width(width = .5)
+
+ft
+```
+
+
+```{r include=FALSE, eval=!file.exists(here::here("static/img/flextable-imgs/flextable-004.png"))}
+save_as_image(ft, path = here::here("static/img/flextable-imgs/flextable-004.png"), webshot = "webshot2")
+```
+

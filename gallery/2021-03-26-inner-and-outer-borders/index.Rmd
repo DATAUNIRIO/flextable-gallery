@@ -1,0 +1,49 @@
+---
+title: Inner and outer borders
+author: David Gohel
+date: '2020-12-06'
+slug: []
+categories:
+  - R
+tags: ["border"]
+image: img/flextable-imgs/flextable-007.png
+showonlyimage: false
+---
+
+
+How to manage regular inner and outer borders.
+
+<!--more-->
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+## Libraries
+
+```{r message=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+library(flextable)
+library(officer)
+```
+
+
+```{r}
+big_border = fp_border(color="red", width = 2)
+small_border = fp_border(color="gray", width = 1)
+
+ft <- flextable(head(airquality))
+ft <- border_remove(x = ft)
+ft <- border_outer(ft, part="all", border = big_border )
+ft <- border_inner_h(ft, part="all", border = small_border )
+ft <- border_inner_v(ft, part="all", border = small_border )
+ft
+```
+
+
+
+```{r include=FALSE, eval=!file.exists(here::here("static/img/flextable-imgs/flextable-007.png"))}
+save_as_image(ft, path = here::here("static/img/flextable-imgs/flextable-007.png"), webshot = "webshot2")
+```
+
