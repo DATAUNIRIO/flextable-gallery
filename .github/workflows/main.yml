@@ -39,7 +39,7 @@ jobs:
         run: |
           minimage::compress_images_install()
           blogdown::build_site(run_hugo = TRUE, build_rmd = TRUE)
-          minimage::compress_images(input = "public", output = "public")
+          minimage::compress_images(input = "public", output = "public", overwrite = TRUE)
         shell: Rscript {0}
 
       - name: Deploy 🚀

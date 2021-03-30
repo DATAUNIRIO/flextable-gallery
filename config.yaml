@@ -4,7 +4,7 @@ theme: hugo-creative-portfolio-theme
 paginate: '6'
 summaryLength: '30'
 languageCode: en-us
-googleAnalytics: 'G-FMBX5KLFSE'
+googleAnalytics: 'UA-48354045-1'
 params:
   copyright: '&copy;2021 <a href="https://www.ardata.fr">ArData</a>'
   description: A gallery of examples codes with flextable
