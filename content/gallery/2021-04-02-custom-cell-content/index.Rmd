@@ -1,0 +1,90 @@
+---
+title: Custom cell content
+author: David Gohel
+date: '2021-04-02'
+slug: []
+categories:
+  - R
+tags:
+  - cell-content
+  - defaults
+image: img/flextable-imgs/flextable-011.png
+showonlyimage: false
+---
+
+Demonstration of formatting capabilities for cell content of 
+various types such as numeric columns, dates, strings.
+
+<!--more-->
+
+## Packages 
+
+```{r message=FALSE}
+library(flextable)
+library(magrittr)
+library(charlatan)
+```
+
+
+## The dataset
+
+Let's simulate a fake dataset with package {charlatan}.
+
+```{r}
+set.seed(007)
+
+n <- 10
+people <- data.frame(
+  name = ch_name(n = n, locale = "fr_FR"),
+  birthday = as.Date(as.POSIXct(unlist(ch_date_time(n = n)), origin = "1970-01-01")) + 20*365,
+  n_children = as.integer(ch_integer(n = n, min = 0, max = 4)),
+  money = rnorm(n = n, mean = 500, sd = 22),
+  weight = runif(n = n, min = 50, max = 90),
+  height = rnorm(n = n, mean = 170, sd = 5),
+  n_peanuts = ch_integer(n = n, min = 500000, max = 1225193),
+  eye_color = as.factor(sample(c("blue", "green", "dark"), prob = c(.15, .3, .55), size = n, replace = TRUE)),
+  stringsAsFactors = FALSE
+) 
+people[2:4, 4] <- NA_real_
+```
+
+## Flextable code
+
+### Setting defaults
+
+
+First, let's define a post-processing operation that will customize the HTML display. This function will be executed systematically before printing the table.
+
+```{r}
+set_flextable_defaults(
+  post_process_html = function(x){
+    theme_tron(x) %>% autofit()
+  }
+)
+```
+
+### Define how to display cell content
+
+Now we can focus on how to format the content of the cells. 
+`colformat_*` functions are dedicated to this task. 
+
+
+```{r}
+ft <- flextable(people) %>% 
+  colformat_double(digits = 1,
+    big.mark = " ", decimal.mark = ",",
+    na_str = "na", j = ~ . - money) %>% 
+  colformat_double(digits = 0,
+    big.mark = " ", 
+    suffix = "€", 
+    na_str = "unknown", j = "money") %>% 
+  colformat_int(j = "n_children", prefix = "# ") %>% 
+  colformat_char(j = "eye_color", prefix = "color: ") %>% 
+  colformat_date(fmt_date = "%d/%m/%Y")
+ft
+```
+
+
+```{r include=FALSE, eval=!file.exists(here::here("static/img/flextable-imgs/flextable-011.png"))}
+save_as_image(ft, path = here::here("static/img/flextable-imgs/flextable-011.png"), webshot = "webshot2")
+```
