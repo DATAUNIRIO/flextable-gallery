@@ -28,7 +28,7 @@ jobs:
 
       - name: Query dependencies
         run: |
-          install.packages(c('remotes', 'blogdown', 'flextable', 'broom', 'readxl', 'fs', 'here', 'data.table', 'dplyr', 'magick', 'ggplot2', 'locatexec', 'callr'))
+          install.packages(c('remotes', 'blogdown', 'flextable', 'broom', 'readxl', 'fs', 'here', 'data.table', 'dplyr', 'magick', 'ggplot2', 'locatexec', 'callr', 'charlatan'))
           remotes::install_github('rstudio/chromote')
           remotes::install_github('rstudio/webshot2')
           remotes::install_github('ardata-fr/minimage')
