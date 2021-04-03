@@ -6,10 +6,28 @@
     <description>Recent content in Tags on flextable gallery</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 29 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Apr 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ardata-fr.github.io/flextable-gallery/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>cell-content</title>
+      <link>https://ardata-fr.github.io/flextable-gallery/tags/cell-content/</link>
+      <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ardata-fr.github.io/flextable-gallery/tags/cell-content/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>defaults</title>
+      <link>https://ardata-fr.github.io/flextable-gallery/tags/defaults/</link>
+      <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ardata-fr.github.io/flextable-gallery/tags/defaults/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>color</title>
